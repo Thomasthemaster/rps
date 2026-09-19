@@ -1,2 +1,4 @@
-# rps
-Rock Paper Scissors Game
+# Rock Paper Scissors
+A Rock Paper Scissors Game
+
+---
