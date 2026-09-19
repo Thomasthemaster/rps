@@ -77,6 +77,7 @@ Watch the project in action + an explanation of the build:
 - Passive Buzzer
 - Ultrasonic Sensor
 - Servo
+- Pushbutton
 - Power MB V2 + 9V Battery
 - Jumper wires
 
