@@ -61,7 +61,7 @@ Watch the project in action + an explanation of the build:
 
 ## 📁 Repository Contents
 
-- `React_Time_Game_COMPAKT.ino` — Arduino source code
+- `Rock_Paper_Scissors_Game.ino` — Arduino source code
 - `README.md` — Project documentation
 - `LICENSE` — Apache License 2.0
 - `Reaction_Time_Game_Image.png` — Project photo
