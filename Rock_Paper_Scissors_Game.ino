@@ -3,16 +3,13 @@ Made by Thomas
 On September 17 2026
 
 A rock paper scissors game (1/2 player) using the following:
-- Liquid Crystal Display (I2C) to display data 
 - A servo to show Rock, Paper, & Scissors (random)
 - A passive buzzer for sound effects
 - An ultrasonic sensor to detect when hand is near
-- Buttons for choosing player's guess
 - (on physical circuit): A Power MB V2 to supply power and make the project portable
 */
 
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
 #include <Servo.h>
 
 // Servo stuff
@@ -23,9 +20,6 @@ Servo computer;
 
 // Sound stuff
 int buzzerPin = 5;
-
-// LCD stuff
-LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Ultrasonic Sensor stuff
 int echoPin = 11;
@@ -40,10 +34,10 @@ int tVal;
 // Other stuff + game mechanics
 int setupDelay = 1000;
 int throwDelay = 500;
-int beatDelay = 1300;
 int prepDelay = 1000;
 int wait = 3000;
 int spamDelay = 20;
+int movingDelay = 30;
 
 int computerChoice;
 int playerChoice;
@@ -52,11 +46,10 @@ int neutralPos = 0;
 int rPos = 0;
 int pPos = 90;
 int sPos = 180;
+int movingPos;
 
 void setup() {
   computer.attach(servoPin);
-  lcd.init();
-  lcd.backlight();
   pinMode(buzzerPin, OUTPUT);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
@@ -64,10 +57,9 @@ void setup() {
   computer.write(neutralPos);
   randomSeed(analogRead(A0));
 
-  lcd.home();
-  lcd.print("Setting up...");
   delay(setupDelay);
-  lcd.clear();
+
+  computer.write(neutralPos); 
 }
 
 long readDistance() {
@@ -83,45 +75,28 @@ long readDistance() {
 }
 
 void moveServoTo(int choice) {
+  movingPos = computer.read();
+  while (movingPos < 180) { // to build suspense
+    movingPos = movingPos + 5;
+    computer.write(movingPos);
+    delay(movingDelay);
+  }
+  while (movingPos > 0) {
+    movingPos = movingPos - 5;
+    computer.write(movingPos);
+    delay(movingDelay);
+  }
   if (choice == 0) computer.write(rPos);
   else if (choice == 1) computer.write(pPos);
   else computer.write(sPos);
 }
 
 void loop() {
-  lcd.clear();
-  lcd.home();
-  computer.write(neutralPos); 
-  
-  lcd.print("Ready?");
-  delay(prepDelay);
-
-  lcd.clear();
-  lcd.home();
-  lcd.print("ROCK...");
-  tone(buzzerPin, 440, 150);
-  delay(beatDelay);
-
-  lcd.clear();
-  lcd.home();
-  lcd.print("PAPER...");
-  tone(buzzerPin, 440, 150);
-  delay(beatDelay);
-
-  lcd.clear();
-  lcd.home();
-  lcd.print("SCISSORS...");
-  tone(buzzerPin, 440, 150);
-  delay(beatDelay);
-
-  lcd.clear();
-  lcd.home();
-  lcd.print("SHOOT!!");
   tone(buzzerPin, 880, 200);
 
    // Confirm a hand is actually near the sensor
   distance = readDistance();
-  while (distance >= 6 || distance == 0) {
+  while (distance >= 10 || distance == 0) {
     distance = readDistance();
     delay(spamDelay); // avoids spamming the sensor
   }
@@ -130,14 +105,9 @@ void loop() {
   computerChoice = random(0, 3);
   moveServoTo(computerChoice);
 
-  // Result
-  lcd.clear();
-  lcd.home();
-
-  tVal = digitalRead(tButton);
-  while (tVal == 1) {
-    tVal = digitalRead(tButton);
+  distance = readDistance();
+  while (distance <= 9) {
+    distance = readDistance();
   }
-  lcd.print("Restarting...");
   delay(wait);
 }
