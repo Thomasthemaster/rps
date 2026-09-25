@@ -29,7 +29,7 @@ Below is the wiring diagram for the project:
 
 ![Wiring Diagram](COMPAKT_Reaction_Time_Game_Wiring_Diagram.png)
 
-**Note: This wiring diagram was made in Wokwi. Since Wokwi doesn't have a Power MB V2 and some components actually differ from the actual build, the wiring diagram is an approximation of the physical build but retains the correct wiring and functionality.**
+**Note: This wiring diagram was made in Wokwi. Since Wokwi doesn't have a Power MB V2 and the cube on top of the Servo in the actual build, the wiring diagram is an approximation of the physical build but retains the correct wiring and functionality.**
 
 ### Schematic
 
@@ -55,7 +55,7 @@ See the project (may have some issues viewing it on desktop):
 
 Watch the project in action + an explanation of the build:
 
-[▶ Watch the Video](https://youtu.be/86yE3Nd00Po)
+[▶ Watch the Video](https://www.youtube.com/watch?v=UvWVi3E_Qpk)
 
 ---
 
