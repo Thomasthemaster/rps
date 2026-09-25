@@ -25,11 +25,7 @@ int buzzerPin = 5;
 int echoPin = 11;
 int trigPin = 10;
 int distance;
-int dThreshold = 5; // cm
-
-// Button stuff
-int tButton = 3; // Tie Button
-int tVal;
+int dThreshold = 10; // cm
 
 // Other stuff + game mechanics
 int setupDelay = 1000;
@@ -53,7 +49,6 @@ void setup() {
   pinMode(buzzerPin, OUTPUT);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  pinMode(tButton, INPUT_PULLUP);
   computer.write(neutralPos);
   randomSeed(analogRead(A0));
 
@@ -96,7 +91,7 @@ void loop() {
 
    // Confirm a hand is actually near the sensor
   distance = readDistance();
-  while (distance >= 10 || distance == 0) {
+  while (distance >= dThreshold || distance == 0) {
     distance = readDistance();
     delay(spamDelay); // avoids spamming the sensor
   }
@@ -106,8 +101,9 @@ void loop() {
   moveServoTo(computerChoice);
 
   distance = readDistance();
-  while (distance <= 9) {
+  while (distance <= dThreshold && distance != 0) {
     distance = readDistance();
+    delay(spamDelay); // avoids spamming the sensor
   }
   delay(wait);
 }
