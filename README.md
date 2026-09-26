@@ -64,8 +64,8 @@ Watch the project in action + an explanation of the build:
 - `Rock_Paper_Scissors_Game.ino` — Arduino source code
 - `README.md` — Project documentation
 - `LICENSE` — Apache License 2.0
-- `Reaction_Time_Game_Image.png` — Project photo
-- `COMPAKT_Reaction_Time_Game_Wiring_Diagram.png` — Wiring Diagram 
+- `Rock_Paper_Scissors_Image.png` — Project photo
+- `Rock_Paper_Scissors_Game.png` — Wiring Diagram 
 - `Schematic.png` — Coming Soon!
 
 ---
