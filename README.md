@@ -27,7 +27,7 @@ The buzzer beeps and the Ultrasonic Sensor waits for a hand. When the hand is de
 
 Below is the wiring diagram for the project:
 
-![Wiring Diagram](COMPAKT_Reaction_Time_Game_Wiring_Diagram.png)
+![Wiring Diagram](Rock_Paper_Scissors_Game.png)
 
 **Note: This wiring diagram was made in Wokwi. Since Wokwi doesn't have a Power MB V2 and the cube on top of the Servo in the actual build, the wiring diagram is an approximation of the physical build but retains the correct wiring and functionality.**
 
