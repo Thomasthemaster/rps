@@ -2,7 +2,7 @@
 Made by Thomas
 On September 17 2026
 
-A rock paper scissors game (1/2 player) using the following:
+A rock paper scissors game (Singleplayer) using the following:
 - A servo to show Rock, Paper, & Scissors (random)
 - A passive buzzer for sound effects
 - An ultrasonic sensor to detect when hand is near
