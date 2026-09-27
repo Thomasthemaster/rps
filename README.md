@@ -57,8 +57,6 @@ Watch the project in action + an explanation of the build:
 
 [▶ Watch the Video](https://www.youtube.com/watch?v=UvWVi3E_Qpk)
 
-**Note: There's a pushbutton in the video demo and project photo, but it is redundant.**
-
 ---
 
 ## 📁 Repository Contents
