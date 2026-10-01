@@ -49,7 +49,7 @@ Try the interactive simulation of the project here:
 
 See the project (may have some issues viewing it on desktop):
 
-[Click here](Reaction_Time_Game_Image.png)
+[Click here](Rock_Paper_Scissors_Image.png)
 
 ## 🎥 Video Demonstration
 
